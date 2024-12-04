@@ -6,13 +6,13 @@
 version: 2
 updates:
   - package-ecosystem: "terraform" # Specify Terraform as the ecosystem
-    directory: "./"                # Root directory containing your `provider.tf` file
+    directory: "./" # Root directory containing your `provider.tf` file
     schedule:
-      interval: "daily"           # Check for updates daily (can also be "weekly" or "monthly")
-    open-pull-requests-limit: 5   # Limit the number of open PRs from Dependabot
+      interval: "daily" # Check for updates daily (can also be "weekly" or "monthly")
+    open-pull-requests-limit: 5 # Limit the number of open PRs from Dependabot
     ignore:
-      - dependency-name: "azurerm"   # Example: Ignore specific providers
-        versions: ["<3.0.0"]         # Example: Ignore versions lower than 3.0.0
+      - dependency-name: "azurerm" # Example: Ignore specific providers
+        versions: ["<3.0.0"] # Example: Ignore versions lower than 3.0.
     labels:
       - "terraform"
       - "dependencies"
