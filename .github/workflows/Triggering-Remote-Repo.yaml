@@ -1,0 +1,38 @@
+name: Trigger Target Repo Workflow on Dependabot Update
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main  # Branch where Dependabot operates
+  push:
+    branches:
+      - main    
+
+# Required Permissions by GITHUB_TOKEN
+permissions: 
+  id-token: write
+  contents: read
+  pull-requests: write
+  actions: read
+  deployments: write
+
+jobs:
+  notify-target-repo:
+    #if: ${{ github.actor == 'dependabot[bot]' }}  # Ensure only Dependabot triggers this job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Repository Dispatch Event
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.TF_TEST }}
+          script: |
+            github.rest.repos.createDispatchEvent({
+              owner: 'hamzanasir47',  //# Replace with target repo owner
+              repo: 'terraform-testing',   //# Replace with target repo name
+              event_type: 'dependabot-update', //# Matche event type in target repo
+              //client_payload: {
+              //  updated_file: 'provider.tf',   # Example of passing the updated file
+              //}
+            })
+
