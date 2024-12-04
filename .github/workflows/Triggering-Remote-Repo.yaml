@@ -25,7 +25,7 @@ jobs:
       - name: Send Repository Dispatch Event
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.TF_MODULE }}
           script: |
             github.rest.repos.createDispatchEvent({
               owner: 'hamzanasir47',  //# Replace with target repo owner
