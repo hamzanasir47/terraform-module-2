@@ -4,13 +4,13 @@ on:
   pull_request:
     types: [opened, synchronize]
     branches:
-      - main  # Branch where Dependabot operates
-  push:
-    branches:
-      - main    
+      - main # Branch where Dependabot operates
+  #push:
+  #branches:
+  #- main
 
-# Required Permissions by GITHUB_TOKEN
-permissions: 
+# Required Permissions by GITHUB_TOKE
+permissions:
   id-token: write
   contents: read
   pull-requests: write
@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   notify-target-repo:
-    #if: ${{ github.actor == 'dependabot[bot]' }}  # Ensure only Dependabot triggers this job
+    if: ${{ github.actor == 'dependabot[bot]' }} # Ensure only Dependabot triggers this job
     runs-on: ubuntu-latest
     steps:
       - name: Send Repository Dispatch Event
@@ -35,4 +35,3 @@ jobs:
               //  updated_file: 'provider.tf',   # Example of passing the updated file
               //}
             })
-
