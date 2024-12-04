@@ -25,12 +25,12 @@ jobs:
       - name: Send Repository Dispatch Event
         uses: actions/github-script@v6
         with:
-          github-token: ${{ 'secrets.MY_SECRET' }}
+          github-token: ${{ secrets.MY_SECRET }}
           script: |
             github.rest.repos.createDispatchEvent({
               owner: 'hamzanasir47',  //# Replace with target repo owner
               repo: 'terraform-testing',   //# Replace with target repo name
-              event_type: 'dependabot-update', //# Matche event type in target repo
+              event_type: 'dependabot-update-1', //# Matche event type in target repo
               //client_payload: {
               //  updated_file: 'provider.tf',   # Example of passing the updated file
               //}
