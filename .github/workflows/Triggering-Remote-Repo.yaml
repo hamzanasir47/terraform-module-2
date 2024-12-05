@@ -2,7 +2,7 @@ name: Trigger Target Repo Workflow on Dependabot Update
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [synchronize]
     branches:
       - main # Branch where Dependabot operates
   #push:
@@ -24,9 +24,8 @@ jobs:
     steps:
       - name: Send Repository Dispatch Event
         uses: actions/github-script@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_SECRET }}
         with:
+          github-token: ${{ secrets.MY_SECRET }}
           script: |
             github.rest.repos.createDispatchEvent({
               owner: 'hamzanasir47',  //# Replace with target repo owner
