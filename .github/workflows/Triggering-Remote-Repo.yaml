@@ -5,9 +5,9 @@ on:
     types: [open, synchronize, closed]
     branches:
       - dev # Branch where Dependabot operates
-  push:
-  branches:
-    - dev
+  # push:
+  #   branches:
+  #     - dev
 
 # Required Permissions by GITHUB_TOKE
 permissions:
