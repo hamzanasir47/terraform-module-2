@@ -2,7 +2,7 @@ name: Trigger Target Repo Workflow on Dependabot Update
 
 on:
   pull_request:
-    types: [open]
+    types: [open, synchronize]
     branches:
       - main # Branch where Dependabot operates
   # push:
@@ -20,7 +20,7 @@ permissions:
 jobs:
  
   auto-merge:
-    if: github.actor == 'dependabot[bot]'
+    if: ${{ github.actor == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
