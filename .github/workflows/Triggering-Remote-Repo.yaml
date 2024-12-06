@@ -42,7 +42,7 @@ jobs:
           github-token: ${{ secrets.MY_SECRET }}
           script: |
             github.rest.repos.createDispatchEvent({
-              owner: 'hamzanasir47',  //# Replace with target repo owner
+              owner: 'hamzanasir47',  //# Replace with target repo owner ok
               repo: 'terraform-testing',   //# Replace with target repo name
               event_type: 'dependabot-update-1', //# Matche event type in target repo
               //client_payload: {
