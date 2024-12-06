@@ -1,13 +1,13 @@
 name: Trigger Target Repo Workflow on Dependabot Update
 
 on:
-  # pull_request:
-  #   types: [open, synchronize]
-  #   branches:
-  #     - main # Branch where Dependabot operates
-  push:
+  pull_request:
+    types: [open]
     branches:
-     - main
+      - main # Branch where Dependabot operates
+  # push:
+  #   branches:
+  #    - main
 
 # Required Permissions by GITHUB_TOKE
 permissions:
