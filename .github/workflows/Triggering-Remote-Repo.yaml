@@ -2,7 +2,7 @@ name: Trigger Target Repo Workflow on Dependabot Update
 
 on:
   pull_request:
-    types: [open, synchronize]
+    types: [open, synchronize, closed]
     branches:
       - main # Branch where Dependabot operates
   # push:
